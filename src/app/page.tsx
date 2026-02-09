@@ -57,12 +57,19 @@ const services: Service[] = [
   },
 ];
 
+type ProjectStatus = "Active" | "In Development" | "Planning";
+
+const STATUS_CLASS: Record<ProjectStatus, string> = {
+  "Active": "status-active",
+  "In Development": "status-dev",
+  "Planning": "status-soon",
+};
+
 interface Project {
   id: string;
   name: string;
   desc: string;
-  status: string;
-  statusClass: string;
+  status: ProjectStatus;
 }
 
 const projects: Project[] = [
@@ -71,35 +78,30 @@ const projects: Project[] = [
     name: "Shariah-Compliant Stock Screener",
     desc: "US and Indian markets. Returns and ethics, together.",
     status: "Active",
-    statusClass: "status-active",
   },
   {
     id: "crm",
     name: "SMB CRM",
     desc: "Does less on purpose. No bloated features.",
     status: "In Development",
-    statusClass: "status-dev",
   },
   {
     id: "marketing",
     name: "AI Marketing Agent",
     desc: "Account research, intelligence, campaign execution.",
     status: "In Development",
-    statusClass: "status-dev",
   },
   {
     id: "travel",
     name: "TravelX",
     desc: "Enterprise travel management for mid-market.",
     status: "Planning",
-    statusClass: "status-soon",
   },
   {
     id: "security",
     name: "SecureScan GCC",
     desc: "VAPT platform for Saudi enterprises.",
     status: "Planning",
-    statusClass: "status-soon",
   },
 ];
 
@@ -306,7 +308,7 @@ export default function Home() {
                       {project.desc}
                     </p>
                   </div>
-                  <span className={`status ${project.statusClass} shrink-0 self-start sm:self-center`}>
+                  <span className={`status ${STATUS_CLASS[project.status]} shrink-0 self-start sm:self-center`}>
                     {project.status}
                   </span>
                 </div>

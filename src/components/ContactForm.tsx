@@ -88,6 +88,7 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
             type="text"
             id="name"
             required
+            maxLength={100}
             value={formData.name}
             onChange={handleChange("name")}
             placeholder="Your name"
@@ -101,6 +102,7 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
             type="email"
             id="email"
             required
+            maxLength={254}
             value={formData.email}
             onChange={handleChange("email")}
             placeholder="your@email.com"
@@ -135,6 +137,7 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
           id="message"
           required
           rows={4}
+          maxLength={5000}
           value={formData.message}
           onChange={handleChange("message")}
           placeholder="Tell me what's on your mind..."
