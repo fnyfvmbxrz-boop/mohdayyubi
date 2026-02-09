@@ -180,15 +180,17 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6 w-full">
             <div className="reveal">
               <p className="section-number mb-6">Based in Riyadh</p>
-              <h1 className="display-text mb-8">Mohammad</h1>
+              <h1 className="display-text mb-4">Mohammad</h1>
+              <div className="accent-line mb-8" />
               <p className="subheadline max-w-2xl mb-12">
                 I sell enterprise tech, build AI products, and dig into history
                 for lessons that still apply today.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-4">
                 <button
                   onClick={() => scrollToSection(SECTION_IDS.about)}
                   className="btn btn-primary"
+                  style={{ background: '#D4A944', color: '#050505' }}
                 >
                   Explore
                 </button>
@@ -231,7 +233,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="stagger-children grid grid-cols-2 gap-4">
+              <div className="stagger-children grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {aboutCards.map((item) => (
                   <div key={item.id} className="card">
                     <h3 className="font-semibold mb-2">{item.label}</h3>
@@ -255,10 +257,10 @@ export default function Home() {
               <h2 className="headline">Three things. All connected.</h2>
             </div>
 
-            <div className="stagger-children grid md:grid-cols-3 gap-6">
+            <div className="stagger-children grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service) => (
                 <div key={service.num} className="card">
-                  <span className="text-5xl font-bold text-muted-foreground/20">
+                  <span className="text-5xl font-bold" style={{ color: 'rgba(212, 169, 68, 0.25)' }}>
                     {service.num}
                   </span>
                   <h3 className="text-xl font-semibold mt-4 mb-3">
@@ -327,11 +329,11 @@ export default function Home() {
               <h2 className="headline">Where the thinking happens out loud</h2>
             </div>
 
-            <div className="stagger-children grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="stagger-children grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
               {/* Newsletter */}
               <div className="card text-center">
-                <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mx-auto mb-6">
-                  <MailIcon size={28} className="text-foreground" />
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(212, 169, 68, 0.1)' }}>
+                  <MailIcon size={28} className="text-foreground" style={{ color: '#D4A944' }} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Chips for Thought</h3>
                 <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
@@ -350,8 +352,8 @@ export default function Home() {
 
               {/* Podcast */}
               <div className="card text-center">
-                <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mx-auto mb-6">
-                  <MicrophoneIcon size={28} className="text-foreground" />
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(212, 169, 68, 0.1)' }}>
+                  <MicrophoneIcon size={28} className="text-foreground" style={{ color: '#D4A944' }} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">The Hittin Files</h3>
                 <p className="text-muted-foreground text-sm mb-8 leading-relaxed">

@@ -31,11 +31,11 @@ const handleNavClick = (href: string) => {
 
 export function Footer() {
   return (
-    <footer className="relative mt-32">
+    <footer className="relative mt-16 md:mt-32">
       {/* Gradient line at top */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 md:w-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="flex flex-col items-center text-center mb-12">
           <a
             href="#"
@@ -55,7 +55,7 @@ export function Footer() {
         </div>
 
         {/* Navigation */}
-        <div className="flex flex-wrap justify-center gap-8 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-10 md:mb-12">
           {navItems.map((item) => (
             <a
               key={item}
@@ -72,7 +72,7 @@ export function Footer() {
         </div>
 
         {/* Social Links */}
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex justify-center gap-3 sm:gap-4 mb-10 md:mb-12">
           {socialLinks.map((link) => (
             <a
               key={link.label}

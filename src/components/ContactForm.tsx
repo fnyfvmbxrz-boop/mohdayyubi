@@ -152,7 +152,7 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
       )}
 
       {showDirectContact && (
-        <div className="pt-6 border-t border-border flex flex-wrap justify-center gap-6 text-sm">
+        <div className="pt-6 border-t border-border flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-sm">
           <a
             href="mailto:hello@mohdayyubi.com"
             className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
