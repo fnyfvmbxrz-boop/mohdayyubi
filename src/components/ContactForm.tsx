@@ -57,7 +57,10 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
     try {
       const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
           subject: `Portfolio Contact: ${formData.topic}`,
@@ -66,13 +69,17 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
         }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         setStatus("success");
         setFormData({ name: "", email: "", topic: "", message: "" });
       } else {
+        console.error("Form error:", result.message);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Form submission failed:", err);
       setStatus("error");
     }
   };
