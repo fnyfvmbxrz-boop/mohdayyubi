@@ -271,6 +271,24 @@ body {
   background: var(--muted);
 }
 
+/* Icon buttons */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  background: var(--card);
+  border-color: var(--muted-foreground);
+}
+
 /* Status pills */
 .status {
   display: inline-flex;

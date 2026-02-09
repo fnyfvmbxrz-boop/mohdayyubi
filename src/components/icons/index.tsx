@@ -181,3 +181,4 @@ export function CheckIcon({ size = 32, className, style }: IconProps) {
     </svg>
   );
 }
+
