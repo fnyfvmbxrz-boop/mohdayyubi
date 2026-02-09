@@ -177,20 +177,18 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[SECTION_IDS.hero] = el; }}
           className="snap-section"
         >
-          <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="reveal">
-              <p className="section-number mb-6">Based in Riyadh</p>
-              <h1 className="display-text mb-4">Mohammad</h1>
-              <div className="accent-line mb-8" />
-              <p className="subheadline max-w-2xl mb-12">
+              <p className="section-number mb-5">Based in Riyadh</p>
+              <h1 className="display-text mb-6">Mohammad</h1>
+              <p className="subheadline max-w-xl mb-10">
                 I sell enterprise tech, build AI products, and dig into history
                 for lessons that still apply today.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-4">
+              <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => scrollToSection(SECTION_IDS.about)}
                   className="btn btn-primary"
-                  style={{ background: '#D4A944', color: '#050505' }}
                 >
                   Explore
                 </button>
@@ -211,7 +209,7 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[SECTION_IDS.about] = el; }}
           className="snap-section"
         >
-          <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
                 <p className="section-number mb-4">01 / About</p>
@@ -233,11 +231,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="stagger-children grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="stagger-children grid grid-cols-2 gap-5 auto-rows-fr">
                 {aboutCards.map((item) => (
-                  <div key={item.id} className="card">
-                    <h3 className="font-semibold mb-2">{item.label}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <div key={item.id} className="card h-full flex flex-col justify-center">
+                    <h3 className="font-semibold mb-1.5">{item.label}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -251,25 +249,25 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[SECTION_IDS.services] = el; }}
           className="snap-section"
         >
-          <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="reveal mb-16">
               <p className="section-number mb-4">02 / Services</p>
               <h2 className="headline">Three things. All connected.</h2>
             </div>
 
-            <div className="stagger-children grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="stagger-children grid md:grid-cols-3 gap-5 auto-rows-fr">
               {services.map((service) => (
-                <div key={service.num} className="card">
-                  <span className="text-5xl font-bold" style={{ color: 'rgba(212, 169, 68, 0.25)' }}>
+                <div key={service.num} className="card flex flex-col h-full">
+                  <span className="text-4xl font-bold text-muted-foreground/15">
                     {service.num}
                   </span>
-                  <h3 className="text-xl font-semibold mt-4 mb-3">
+                  <h3 className="text-lg font-semibold mt-3 mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                  <p className="text-muted-foreground text-sm mb-auto leading-relaxed">
                     {service.desc}
                   </p>
-                  <div className="pt-4 border-t border-border">
+                  <div className="pt-4 mt-6 border-t border-border">
                     <span className="text-xs text-muted-foreground uppercase tracking-wider">
                       Best for
                     </span>
@@ -287,7 +285,7 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[SECTION_IDS.projects] = el; }}
           className="snap-section"
         >
-          <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="reveal mb-12">
               <p className="section-number mb-4">03 / Projects</p>
               <h2 className="headline mb-4">Things I&apos;m building</h2>
@@ -296,19 +294,19 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="stagger-children space-y-3">
+            <div className="stagger-children flex flex-col gap-3">
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="card flex flex-col sm:flex-row sm:items-center justify-between gap-4 !p-6"
+                  className="card card-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4"
                 >
-                  <div>
-                    <h3 className="font-semibold mb-1">{project.name}</h3>
-                    <p className="text-sm text-muted-foreground">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold mb-0.5">{project.name}</h3>
+                    <p className="text-sm text-muted-foreground leading-snug">
                       {project.desc}
                     </p>
                   </div>
-                  <span className={`status ${project.statusClass} shrink-0`}>
+                  <span className={`status ${project.statusClass} shrink-0 self-start sm:self-center`}>
                     {project.status}
                   </span>
                 </div>
@@ -323,20 +321,20 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[SECTION_IDS.content] = el; }}
           className="snap-section"
         >
-          <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="reveal mb-16 text-center">
               <p className="section-number mb-4">04 / Content</p>
               <h2 className="headline">Where the thinking happens out loud</h2>
             </div>
 
-            <div className="stagger-children grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            <div className="stagger-children grid md:grid-cols-2 gap-6 max-w-4xl mx-auto auto-rows-fr">
               {/* Newsletter */}
-              <div className="card text-center">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(212, 169, 68, 0.1)' }}>
-                  <MailIcon size={28} className="text-foreground" style={{ color: '#D4A944' }} />
+              <div className="card card-lg text-center flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mx-auto mb-5">
+                  <MailIcon size={24} className="text-foreground" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Chips for Thought</h3>
-                <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                <h3 className="text-lg font-semibold mb-2">Chips for Thought</h3>
+                <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-1">
                   Enterprise technology through a sharper lens. Lessons from
                   history that still apply today.
                 </p>
@@ -351,12 +349,12 @@ export default function Home() {
               </div>
 
               {/* Podcast */}
-              <div className="card text-center">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(212, 169, 68, 0.1)' }}>
-                  <MicrophoneIcon size={28} className="text-foreground" style={{ color: '#D4A944' }} />
+              <div className="card card-lg text-center flex flex-col h-full">
+                <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mx-auto mb-5">
+                  <MicrophoneIcon size={24} className="text-foreground" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">The Hittin Files</h3>
-                <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                <h3 className="text-lg font-semibold mb-2">The Hittin Files</h3>
+                <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-1">
                   Lessons from history that still apply today. Leadership,
                   strategy, negotiation.
                 </p>
@@ -379,7 +377,7 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[SECTION_IDS.speaking] = el; }}
           className="snap-section"
         >
-          <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
                 <p className="section-number mb-4">05 / Speaking</p>
@@ -390,11 +388,11 @@ export default function Home() {
                   Just experience turned into something useful for your
                   audience.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-10">
+                <div className="flex flex-wrap gap-2.5 mb-10">
                   {speakingFormats.map((format) => (
                     <span
                       key={format}
-                      className="px-4 py-2 text-sm bg-muted rounded-full border border-border"
+                      className="px-4 py-2 text-sm bg-muted rounded-full border border-border font-medium"
                     >
                       {format}
                     </span>
@@ -408,16 +406,16 @@ export default function Home() {
                 </button>
               </div>
 
-              <div className="stagger-children space-y-4">
+              <div className="stagger-children flex flex-col gap-3">
                 {speakingTopics.map((topic, i) => (
                   <div
                     key={topic}
-                    className="flex items-center gap-4 p-5 bg-muted rounded-2xl"
+                    className="flex items-center gap-4 p-4 bg-muted rounded-xl min-h-[60px]"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center font-semibold">
+                    <div className="w-9 h-9 rounded-lg bg-card border border-border flex items-center justify-center text-sm font-semibold shrink-0">
                       {i + 1}
                     </div>
-                    <span className="font-medium">{topic}</span>
+                    <span className="font-medium text-[15px]">{topic}</span>
                   </div>
                 ))}
               </div>
@@ -431,7 +429,7 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[SECTION_IDS.contact] = el; }}
           className="snap-section"
         >
-          <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="reveal text-center mb-12">
               <p className="section-number mb-4">06 / Contact</p>
               <h2 className="headline mb-4">Let&apos;s talk</h2>
