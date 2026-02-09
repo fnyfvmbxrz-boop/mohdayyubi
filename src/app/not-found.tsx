@@ -17,13 +17,13 @@ export default function NotFound() {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/"
-            className="inline-flex items-center px-6 py-3 bg-foreground text-background font-medium rounded-lg hover:opacity-90 transition-opacity"
+            className="btn btn-primary"
           >
             Go home
           </Link>
           <Link
-            href="/contact"
-            className="inline-flex items-center px-6 py-3 border border-border font-medium rounded-lg hover:bg-muted transition-colors"
+            href="/#contact"
+            className="btn btn-secondary"
           >
             Let me know what&apos;s broken
           </Link>
@@ -35,32 +35,32 @@ export default function NotFound() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <Link
-              href="/about"
-              className="text-foreground hover:text-accent transition-colors"
+              href="/#about"
+              className="text-foreground hover:text-muted-foreground transition-colors"
             >
               About
             </Link>
             <Link
-              href="/services"
-              className="text-foreground hover:text-accent transition-colors"
+              href="/#services"
+              className="text-foreground hover:text-muted-foreground transition-colors"
             >
               Services
             </Link>
             <Link
-              href="/projects"
-              className="text-foreground hover:text-accent transition-colors"
+              href="/#projects"
+              className="text-foreground hover:text-muted-foreground transition-colors"
             >
               Projects
             </Link>
             <Link
-              href="/content"
-              className="text-foreground hover:text-accent transition-colors"
+              href="/#content"
+              className="text-foreground hover:text-muted-foreground transition-colors"
             >
               Content
             </Link>
             <Link
-              href="/speaking"
-              className="text-foreground hover:text-accent transition-colors"
+              href="/#speaking"
+              className="text-foreground hover:text-muted-foreground transition-colors"
             >
               Speaking
             </Link>

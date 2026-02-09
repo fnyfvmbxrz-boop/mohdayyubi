@@ -358,14 +358,7 @@ export default function Home() {
                   Lessons from history that still apply today. Leadership,
                   strategy, negotiation.
                 </p>
-                <div className="flex gap-3">
-                  <a href="#spotify" className="btn btn-secondary">
-                    Spotify
-                  </a>
-                  <a href="#apple" className="btn btn-secondary">
-                    Apple
-                  </a>
-                </div>
+                <span className="text-sm text-muted-foreground">Coming soon</span>
               </div>
             </div>
           </div>
