@@ -1,7 +1,22 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { MailIcon, LinkedInIcon, CheckIcon } from "./icons";
+
+// Email obfuscation to prevent spam bots from scraping
+function useObfuscatedEmail() {
+  const [email, setEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Construct email client-side only
+    const user = "mail";
+    const domain = "mohdayyubi";
+    const tld = "com";
+    setEmail(`${user}@${domain}.${tld}`);
+  }, []);
+
+  return email;
+}
 
 interface ContactFormData {
   name: string;
@@ -15,6 +30,7 @@ interface ContactFormProps {
 }
 
 export function ContactForm({ showDirectContact = true }: ContactFormProps) {
+  const obfuscatedEmail = useObfuscatedEmail();
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -32,22 +48,18 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
-
-    if (!FORM_ENDPOINT) {
-      console.error("Form endpoint not configured. Set NEXT_PUBLIC_FORM_ENDPOINT environment variable.");
-      setStatus("error");
-      return;
-    }
+    // Web3Forms configuration (access key is public by design - tied to recipient email)
+    const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+    const WEB3FORMS_KEY = "a959d109-75cb-4ddb-8387-24c0c005552f";
 
     setStatus("loading");
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: WEB3FORMS_KEY,
           subject: `Portfolio Contact: ${formData.topic}`,
           from_name: formData.name,
           ...formData,
@@ -161,13 +173,20 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
 
       {showDirectContact && (
         <div className="pt-6 border-t border-border flex flex-wrap justify-center gap-6 text-sm">
-          <a
-            href="mailto:mail@mohdayyubi.com"
-            className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-          >
-            <MailIcon size={16} />
-            mail@mohdayyubi.com
-          </a>
+          {obfuscatedEmail ? (
+            <a
+              href={`mailto:${obfuscatedEmail}`}
+              className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+            >
+              <MailIcon size={16} />
+              {obfuscatedEmail}
+            </a>
+          ) : (
+            <span className="text-muted-foreground flex items-center gap-2">
+              <MailIcon size={16} />
+              Loading...
+            </span>
+          )}
           <a
             href="https://linkedin.com/in/mohdayyubi"
             target="_blank"
