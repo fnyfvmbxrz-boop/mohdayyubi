@@ -322,16 +322,16 @@ export default function Home() {
           className="snap-section"
         >
           <div className="max-w-5xl mx-auto px-6 w-full">
-            <div className="reveal mb-16 text-center">
+            <div className="reveal mb-12">
               <p className="section-number mb-4">04 / Content</p>
               <h2 className="headline">Where the thinking happens out loud</h2>
             </div>
 
-            <div className="stagger-children grid md:grid-cols-2 gap-6 max-w-4xl mx-auto auto-rows-fr">
+            <div className="stagger-children grid md:grid-cols-2 gap-5 auto-rows-fr">
               {/* Newsletter */}
-              <div className="card card-lg text-center flex flex-col h-full">
-                <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mx-auto mb-5">
-                  <MailIcon size={24} className="text-foreground" />
+              <div className="card card-lg flex flex-col h-full">
+                <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-5">
+                  <MailIcon size={22} className="text-foreground" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Chips for Thought</h3>
                 <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-1">
@@ -342,23 +342,23 @@ export default function Home() {
                   href="https://mohdayyubi.substack.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary"
+                  className="btn btn-primary self-start"
                 >
                   Subscribe
                 </a>
               </div>
 
               {/* Podcast */}
-              <div className="card card-lg text-center flex flex-col h-full">
-                <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mx-auto mb-5">
-                  <MicrophoneIcon size={24} className="text-foreground" />
+              <div className="card card-lg flex flex-col h-full">
+                <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-5">
+                  <MicrophoneIcon size={22} className="text-foreground" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">The Hittin Files</h3>
                 <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-1">
                   Lessons from history that still apply today. Leadership,
                   strategy, negotiation.
                 </p>
-                <div className="flex gap-3 justify-center">
+                <div className="flex gap-3">
                   <a href="#spotify" className="btn btn-secondary">
                     Spotify
                   </a>
