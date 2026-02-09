@@ -46,7 +46,12 @@ export function ContactForm({ showDirectContact = true }: ContactFormProps) {
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `Portfolio Contact: ${formData.topic}`,
+          from_name: formData.name,
+          ...formData,
+        }),
       });
 
       if (response.ok) {
