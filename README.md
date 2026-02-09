@@ -1,36 +1,148 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mohammad's Personal Website
 
-## Getting Started
+A personal website built with Next.js, Tailwind CSS, and deployed on Cloudflare Pages.
 
-First, run the development server:
+## Tech Stack
 
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS
+- **Font:** Space Grotesk
+- **Hosting:** Cloudflare Pages
+- **Forms:** Configurable endpoint (Formspree, Web3Forms, or Cloudflare Workers)
+
+## Local Development
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/mohdayyubi.git
+cd mohdayyubi
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+Build the static site:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This generates a static export in the `out` directory.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying to Cloudflare Pages
 
-## Deploy on Vercel
+### Option 1: Connect GitHub Repository (Recommended)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push your code to GitHub
+2. Go to [Cloudflare Pages](https://pages.cloudflare.com/)
+3. Click "Create a project" > "Connect to Git"
+4. Select your repository
+5. Configure build settings:
+   - **Build command:** `npm run build`
+   - **Build output directory:** `out`
+   - **Node version:** 18 or higher
+6. Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Cloudflare will automatically rebuild and deploy on every push to the main branch.
+
+### Option 2: Direct Upload
+
+1. Build the site locally:
+```bash
+npm run build
+```
+
+2. Go to Cloudflare Pages dashboard
+3. Create a new project with direct upload
+4. Upload the `out` folder
+
+## Environment Variables
+
+For the contact form to work, set the following environment variable:
+
+- `NEXT_PUBLIC_FORM_ENDPOINT`: Your form submission endpoint (Formspree, Web3Forms, etc.)
+
+### Setting Up Forms
+
+**Formspree:**
+1. Create a form at [formspree.io](https://formspree.io)
+2. Set `NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID`
+
+**Web3Forms:**
+1. Get an access key at [web3forms.com](https://web3forms.com)
+2. Set `NEXT_PUBLIC_FORM_ENDPOINT=https://api.web3forms.com/submit`
+3. Add your access key to the form data
+
+## Customization
+
+### Adding Substack Embed
+
+Replace the placeholder in these files with your actual Substack embed code:
+- `src/app/page.tsx` (homepage)
+- `src/app/content/page.tsx` (content hub)
+- `src/app/contact/page.tsx` (contact page)
+
+### Adding Podcast Embed
+
+Replace the placeholder in `src/app/content/page.tsx` with your Spotify/Apple Podcasts embed code.
+
+### Updating Social Links
+
+Edit the following files to update your social links:
+- `src/components/Footer.tsx`
+- `src/app/about/page.tsx`
+- `src/app/contact/page.tsx`
+
+### Changing the Domain
+
+Update the sitemap base URL in `src/app/sitemap.ts`:
+```typescript
+const baseUrl = "https://yourdomain.com";
+```
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── about/
+│   ├── contact/
+│   ├── content/
+│   ├── projects/
+│   ├── services/
+│   ├── speaking/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── not-found.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+└── components/
+    ├── Footer.tsx
+    ├── Navigation.tsx
+    ├── ThemeProvider.tsx
+    └── ThemeToggle.tsx
+```
+
+## Features
+
+- Dark mode by default with light mode toggle
+- Responsive design (mobile-first)
+- Smooth animations and transitions
+- SEO optimized (meta tags, sitemap, robots.txt)
+- Fast page loads (static export)
+- Contact form with configurable backend
+
+## License
+
+Private - All rights reserved.
